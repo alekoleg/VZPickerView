@@ -206,7 +206,7 @@ static UIView *_ipadHolderView = nil;
 - (void)hide {
     
     if ([self isIpad]) {
-//        i realy hate popover whitout dispatch_after does not dismissed
+//        i realy hate popover, whitout dispatch_after does not dismissed
         self.popover.passthroughViews = nil;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             _ipadHolderView = nil;
