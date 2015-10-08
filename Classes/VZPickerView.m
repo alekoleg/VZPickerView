@@ -16,7 +16,8 @@ static UIView *_ipadHolderView = nil;
 @property (nonatomic, weak) UIView *presentingView;
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) UIView *dimView;
-@property (nonatomic, strong) UIDatePicker *picker;
+@property (nonatomic, strong, readwrite) UIDatePicker *picker;
+@property (nonatomic, strong, readwrite) UINavigationBar *navigationBar;
 
 @property (nonatomic, strong) NSArray *customObjects;
 @property (nonatomic, strong) UIPickerView *customPicker;
@@ -292,5 +293,16 @@ static UIView *_ipadHolderView = nil;
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
     _popover = nil;
+}
+
+- (void)popoverController:(UIPopoverController *)popoverController
+willRepositionPopoverToRect:(inout CGRect *)rect
+				   inView:(inout UIView *__autoreleasing  _Nonnull *)view
+{
+	if (*view)
+	{
+		UIView *currentView = *view;
+		*rect = currentView.bounds;
+	}
 }
 @end

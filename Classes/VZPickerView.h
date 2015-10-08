@@ -13,7 +13,8 @@ typedef void (^VZPickerViewObjectResultBlock)(id object);
 
 @interface VZPickerView : UIView
 
-@property (nonatomic, strong) UINavigationBar *navigationBar;
+@property (nonatomic, readonly) UINavigationBar *navigationBar;
+@property (nonatomic, readonly) UIDatePicker *picker;
 
 + (instancetype)showDatePickerInView:(UIView *)view minDate:(NSDate *)minDate maxDate:(NSDate *)maxDate currentDate:(NSDate *)current complete:(VZPickerViewDateResultBlock)complete;
 
